@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCollision : MonoBehaviour
+public class FarmerDetection : MonoBehaviour
 {
-    CircleCollider2D collisionRadius;
     // Start is called before the first frame update
     void Start()
     {
-        collisionRadius = GetComponent<CircleCollider2D>();
+        
     }
+
     // Update is called once per frame
     void Update()
     {
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
+        
     }
 }

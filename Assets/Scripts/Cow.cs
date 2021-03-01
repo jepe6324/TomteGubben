@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Cow : MonoBehaviour
 {
-	public Bucket bucket;
+    [SerializeField] public AudioClip Milk;
+    public Bucket bucket;
 
 	BoxCollider2D boxCollider;
 	bool fed = false;
@@ -15,7 +16,7 @@ public class Cow : MonoBehaviour
 	public void Feed()
 	{
 		fed = true;
-		// Mooooooooo noise
+        GetComponent<AudioSource>().Play();
 	}
 	public void Interact(string pickupName)
 	{

@@ -23,8 +23,8 @@ public class Haystack : MonoBehaviour
 			Destroy(boxCollider);
 			spriteRenderer.sprite = cutSprite;
 			cow.BroadcastMessage("Feed");
-			// Cut noise
+            GetComponent<AudioSource>().Play();
 
-		}
+        }
 	}
 }

@@ -21,7 +21,7 @@ public class Grass : MonoBehaviour
 		{
 			Destroy(boxCollider);
 			spriteRenderer.sprite = cutSprite;
-			// Grass cut noise
+            GetComponent<AudioSource>().Play();
 		}
 	}
 }

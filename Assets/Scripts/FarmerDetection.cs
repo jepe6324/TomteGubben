@@ -8,7 +8,7 @@ public class FarmerDetection : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			// farmer noise
+            GetComponent<AudioSource>().Play();
 		}
 	}
 }

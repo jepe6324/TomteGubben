@@ -45,9 +45,9 @@ public class FarmerMovement : MonoBehaviour
 	}
     void TurnUpdate()
     {
-        angle = Vector2.Angle( transform.up, patrolPoints[patrolPointIndex].position - transform.position);
-        transform.Rotate(transform.forward, turnRate * Time.deltaTime);
-        if (angle < 0.5)
+        angle = Vector2.SignedAngle(transform.up, patrolPoints[patrolPointIndex].position - transform.position);
+        transform.Rotate(transform.forward, turnRate * Time.deltaTime * Mathf.Sign(angle));
+        if (Mathf.Abs(angle) < 0.5)
         {
             state = State.WALKING;
         }

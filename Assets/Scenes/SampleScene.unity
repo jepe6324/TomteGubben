@@ -625,7 +625,7 @@ MonoBehaviour:
   - {fileID: 820993817}
   - {fileID: 1988964539}
   speed: 1.25
-  turnRate: -60
+  turnRate: 60
 --- !u!60 &647307103
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1512,7 +1512,7 @@ GameObject:
   - component: {fileID: 1453419527}
   m_Layer: 0
   m_Name: Scissors
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1925,7 +1925,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: aabb5a7773f2fb8438074a92c6923f02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1945,7 +1945,7 @@ Transform:
   m_GameObject: {fileID: 1752434504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1965,7 +1965,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 2.0644898
 --- !u!114 &1752434509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2134,7 +2134,7 @@ GameObject:
   - component: {fileID: 1947806793}
   m_Layer: 0
   m_Name: Bucket empty
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

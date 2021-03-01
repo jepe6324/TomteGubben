@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class FarmerMovement : MonoBehaviour
 {
+    enum State
+    {
+        TURNING,
+        WALKING
+    }
+
     public Transform[] patrolPoints;
     public float speed, turnRate;
 
-    enum State
-	{
-        TURNING,
-        WALKING
-	}
-
     private State state = State.TURNING;
     private uint patrolPointIndex = 0;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    private float angle;
     void Update()
     {
         if (state == State.WALKING)
@@ -35,26 +30,35 @@ public class FarmerMovement : MonoBehaviour
 
     void WalkUpdate()
 	{
+        Vector3 position = transform.position;
+        Vector3 destination = patrolPoints[patrolPointIndex].position;
+        Vector3 direction = (destination - position).normalized;
+        position += direction* speed * Time.deltaTime;
 
+        transform.position = position;
 
-        //Walk to current patrol point
-        //increment patrolpointindex
-        //switch to turnstate
+        if (Vector3.Distance(position, destination) < 0.2f)
+		{
+            IncrementIndex();
+            state = State.TURNING;
+        }
 	}
     void TurnUpdate()
-	{
-
-        float angle = Vector2.Angle(gameObject.transform.position, patrolPoints[patrolPointIndex].position); // The end angle we want
-        float rotation = gameObject.transform.eulerAngles.z;
-
-        float delta = Mathf.Abs(rotation - angle);
-
-        if (delta > 1)
+    {
+        angle = Vector2.Angle( transform.up, patrolPoints[patrolPointIndex].position - transform.position);
+        transform.Rotate(transform.forward, turnRate * Time.deltaTime);
+        if (angle < 0.5)
         {
-            gameObject.transform.eulerAngles += Vector3.forward * turnRate * Time.deltaTime;
-        }
-        else {
             state = State.WALKING;
         }
+
+	}
+    void IncrementIndex()
+	{
+        patrolPointIndex++;
+        if (patrolPointIndex >= patrolPoints.Length)
+		{
+            patrolPointIndex = 0;
+		}
 	}
 }

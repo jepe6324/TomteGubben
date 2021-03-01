@@ -15,6 +15,7 @@ public class Cow : MonoBehaviour
 	public void Feed()
 	{
 		fed = true;
+		// Mooooooooo noise
 	}
 	public void Interact(string pickupName)
 	{
@@ -22,7 +23,6 @@ public class Cow : MonoBehaviour
 		{
 			Destroy(boxCollider);
 			bucket.BroadcastMessage("Fill");
-			// Mooooooooo noise
 		}
 	}
 }

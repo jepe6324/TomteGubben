@@ -24,6 +24,7 @@ public class Haystack : MonoBehaviour
 			spriteRenderer.sprite = cutSprite;
 			cow.BroadcastMessage("Feed");
 			// Cut noise
+
 		}
 	}
 }

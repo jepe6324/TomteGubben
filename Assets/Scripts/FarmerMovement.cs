@@ -37,7 +37,7 @@ public class FarmerMovement : MonoBehaviour
 
         transform.position = position;
 
-        if (Vector3.Distance(position, destination) < 0.5f)
+        if (Vector3.Distance(position, destination) < 0.2f)
 		{
             IncrementIndex();
             state = State.TURNING;
@@ -49,7 +49,7 @@ public class FarmerMovement : MonoBehaviour
         Debug.Log("Angle: " + angle);
 
         transform.Rotate(transform.forward, turnRate * Time.deltaTime);
-        if (angle < 1)
+        if (angle < 0.5)
         {
             state = State.WALKING;
         }

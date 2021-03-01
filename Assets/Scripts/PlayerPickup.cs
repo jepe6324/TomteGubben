@@ -4,22 +4,31 @@ using UnityEngine;
 
 public class PlayerPickup : MonoBehaviour
 {
-    Pickup pickup;
+    [HideInInspector] public Pickup pickup;
+    Pickup proximity;
     void Update()
     {
 		if (Input.GetKeyDown("space"))
 		{
-            //If a pickup is ready
-            //pick it up
+            pickup = proximity;
+		}
+        if (pickup != null)
+		{
+            pickup.transform.position = transform.position;
 		}
     }
 
     void OnTriggerEnter2D(Collider2D other)
 	{
-        //Ready object for being picked up
+        if (other.CompareTag("Pickup")) {
+            proximity = other.GetComponent<Pickup>();
+        }
 	}
     void OnTriggerExit2D(Collider2D other)
     {
-        //Unready object for being picked up
+        if (other.CompareTag("Pickup") && other.GetComponent<Pickup>() == proximity)
+		{
+            proximity = null;
+		}
     }
 }
